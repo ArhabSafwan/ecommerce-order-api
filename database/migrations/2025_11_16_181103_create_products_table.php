@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -27,8 +28,8 @@ return new class extends Migration
             // MySQL fulltext indexes must be created via raw statement in some versions; add after table creation if needed.
         });
         // Add fulltext index if supported
-        if (Schema::getConnection()->getDoctrineSchemaManager()->getDatabasePlatform()->getName() === 'mysql') {
-            \DB::statement('ALTER TABLE products ADD FULLTEXT fulltext_index (name, description, sku)');
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement('ALTER TABLE products ADD FULLTEXT fulltext_index (name, description, sku)');
         }
     }
 
