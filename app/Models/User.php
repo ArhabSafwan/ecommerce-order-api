@@ -33,6 +33,42 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    // JWTSubject methods
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    // roles (many-to-many)
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    // convenience
+    public function hasRole($role): bool
+    {
+        if (is_string($role)) {
+            return $this->roles()->where('name', $role)->exists();
+        }
+        if (is_array($role)) {
+            return $this->roles()->whereIn('name', $role)->exists();
+        }
+        return false;
+    }
+
+    public function assignRole($role)
+    {
+        if (is_string($role)) {
+            $role = Role::firstOrCreate(['name' => $role]);
+        }
+        $this->roles()->syncWithoutDetaching([$role->id]);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
