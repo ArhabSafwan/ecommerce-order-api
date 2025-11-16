@@ -8,7 +8,7 @@ Route::prefix('v1')->group(function () {
 
     // Auth public
     Route::post('auth/register', [AuthController::class, 'register']);
-    Route::post('auth/login', [AuthController::class, 'login']);
+    Route::post('auth/login', [AuthController::class, 'login'])->name('login');
 
     // token refresh
     Route::post('auth/refresh', [AuthController::class, 'refresh'])->middleware('auth:api');
