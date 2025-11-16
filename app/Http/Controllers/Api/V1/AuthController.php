@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Tymon\JWTAuth\Validators\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
