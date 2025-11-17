@@ -68,9 +68,31 @@ class ProductController extends Controller
     // show
     public function show($id)
     {
+        // 1. Fetch the Product
         $product = $this->repo->find($id);
-        if (!$product)
-            return response()->json(['message' => 'Not found'], 404);
+
+        if (!$product) {
+            return response()->json(['message' => 'Product not found.'], 404);
+        }
+
+        $user = auth('api')->user();
+
+        // 3. Check if the user is a Vendor AND if they do not own this product.
+        if ($user->hasRole('vendor')) {
+            // If they are a Vendor, they must own the product (vendor_id must match).
+            if ($product->vendor_id !== $user->id) {
+                return response()->json([
+                    'message' => 'Forbidden. You do not have management access to this product.'
+                ], 403);
+            }
+        }
+
+        // 4.Deny Customer Access Explicitly:
+        if ($user->hasRole('customer')) {
+            return response()->json([
+                'message' => 'Forbidden. Customers cannot access product management details.'
+            ], 403);
+        }
         return response()->json($product);
     }
 
