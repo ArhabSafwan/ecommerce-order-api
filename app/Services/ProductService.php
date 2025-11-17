@@ -2,12 +2,12 @@
 namespace App\Services;
 
 use App\Models\Product;
-use App\Models\ProductVariant;
 use App\Models\Inventory;
-use App\Repositories\ProductRepository;
 use Illuminate\Support\Str;
+use App\Models\ProductVariant;
 use App\Events\InventoryLowEvent;
-use DB;
+use Illuminate\Support\Facades\DB;
+use App\Repositories\ProductRepository;
 
 class ProductService
 {
