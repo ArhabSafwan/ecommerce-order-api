@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Services\ProductService;
 use App\Http\Controllers\Controller;
+use App\Jobs\ImportProductsFromCsvJob;
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Validator;
 

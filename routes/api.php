@@ -43,14 +43,16 @@ Route::prefix('v1')->group(function () {
             });
         });
     });
-    
+
     // Product routes (accessible to authenticated users)
     Route::middleware(['auth:api'])->group(function () {
-        Route::get('products', [ProductController::class, 'index']);
-        Route::get('products/{id}', [ProductController::class, 'show']);
-        Route::post('products', [ProductController::class, 'store']); // vendor/admin
-        Route::put('products/{id}', [ProductController::class, 'update']);
-        Route::delete('products/{id}', [ProductController::class, 'destroy']);
+        Route::middleware('role:admin|vendor')->prefix('products')->group(function () {
+            Route::get('/', [ProductController::class, 'index']);
+            Route::get('/{id}', [ProductController::class, 'show']);
+            Route::post('/', [ProductController::class, 'store']);
+            Route::put('/{product}', [ProductController::class, 'update']);
+            Route::delete('/{product}', [ProductController::class, 'destroy']);
+        });
 
         Route::post('products/import-csv', [ProductController::class, 'importCsv']); // vendor/admin
         Route::post('products/decrease-inventory', [ProductController::class, 'decreaseInventory']);

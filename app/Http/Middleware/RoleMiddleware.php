@@ -20,7 +20,7 @@ class RoleMiddleware
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
-        $rolesArr = array_map('trim', explode(',', $roles));
+        $rolesArr = array_map('trim', explode('|', $roles));
 
         if (!$user->hasRole($rolesArr)) {
             return response()->json(['message' => 'Forbidden, insufficient role'], 403);
