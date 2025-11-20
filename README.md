@@ -1,167 +1,161 @@
-Senior Laravel Developer Assessment: E-Commerce API
+🛒 E-Commerce API — Senior Laravel Developer Assessment
 
-This project implements a secure, role-based E-Commerce API built on the Laravel framework, focusing on clean architecture, robust security, and high-performance search capabilities, as required by the assignment brief.
+A secure, role-based E-Commerce REST API built with Laravel, featuring a clean architecture, robust security, role-based authorization, and high-performance full-text product search.
 
-6. Contact Information
+📇 Contact Information
+Detail	Value
+Name	[Your Name]
+Email	[Your Email]
+GitHub Profile	[Your GitHub Link]
+🚀 1. Project Overview & Features
 
-Detail
+This project delivers the core architecture of an E-Commerce backend API, focusing on security, data integrity, and clean structure.
+Transactional workflows (Orders) are intentionally out of scope for this submission.
 
-Value
+✅ Completed Core Features
+🔐 Authentication (JWT)
 
-Name
+Full token-based API authentication.
 
-[Your Name]
+Implemented using Laravel Sanctum/Passport or tymon/jwt-auth.
 
-Email
+🔏 Authorization (RBAC)
 
-[Your Email]
+Strict Role-Based Access Control:
 
-GitHub Profile
+Admin: Full access.
 
-[Your GitHub Link]
+Vendor: Restricted to their own products only.
 
-1. Project Overview and Features
+Customer: Limited access to browsing.
 
-This submission delivers the core foundation for the E-Commerce platform, prioritizing security and data management over the transactional workflow (Orders).
+🛍 Vendor Scoping
 
-Completed Core Features:
+Vendors may only view, update, and delete their own products.
 
-Authentication (JWT): Full token-based authentication using Laravel Sanctum/Passport (or equivalent JWT package) for secure API access.
+Admins bypass all scoping restrictions.
 
-Authorization (RBAC): Strict Role-Based Access Control enforced across all management endpoints for Admin, Vendor, and Customer roles.
+📦 Product Management
 
-Vendor Security Scoping: Implemented logic to ensure Vendors can only manage (view, update, delete) the products they own. Admins have unrestricted access.
+Full CRUD operations for:
 
-Product Management (CRUD): Complete functionality for creating, reading, updating, and deleting Products and their associated Variants.
+Products
 
-High-Performance Search: Product search functionality is implemented using MySQL Full-Text Search (FTS) in Boolean Mode for fast, relevant results.
+Variants
 
-Architectural Focus:
-The codebase adheres strictly to the Repository Pattern and utilizes Service Classes to separate business logic from the controller layer, ensuring maintainability and testability.
+🔎 High-Performance Search
 
-2. Local Setup Instructions (Step-by-Step)
+Implemented using MySQL FULLTEXT Search in Boolean Mode.
 
-Follow these steps to get the application running locally:
+Provides fast, accurate product search results.
 
-Clone the Repository:
+🏗 Architectural Standards
 
+Strict adherence to the Repository Pattern.
+
+Service classes handle business logic.
+
+Controllers remain thin and clean.
+
+Easily testable and maintainable codebase.
+
+🛠 2. Local Setup Instructions
+
+Follow these steps to run the project locally:
+
+1. Clone the Repository
 git clone [YOUR_REPO_URL]
 cd [repo-name]
 
-
-Install PHP Dependencies:
-
+2. Install PHP Dependencies
 composer install
 
-
-Setup Environment File:
-
+3. Create Environment File
 cp .env.example .env
 
-
-Generate Application Key:
-
+4. Generate Application Key
 php artisan key:generate
 
+5. Configure Database
 
-Configure Database and FTS:
+Update .env with your MySQL credentials.
 
-Ensure your .env file points to a MySQL database.
+6. Run Migrations & Seeders
 
-Crucially: Ensure your database service (e.g., Docker, XAMPP) is running.
-
-Run Migrations and Seed Database:
-The migration file for the products table includes the necessary FULLTEXT INDEX required for the search feature.
+Includes FULLTEXT index for product search.
 
 php artisan migrate --seed
 
-
-Note: Seeding creates the roles (Admin, Vendor, Customer) and the initial testing users.
-
-Generate JWT Secret Key (If using tymon/jwt-auth):
-
+7. Generate JWT Secret (if using tymon/jwt-auth)
 php artisan jwt:secret
 php artisan config:clear
 
-
-Start the Local Server:
-
+8. Start Local Server
 php artisan serve
 
+⚙️ 3. Environment Variables
 
-3. Environment Variables Documentation
+Ensure the following important variables are set in your .env:
 
-Ensure the following variables in your .env file are configured:
+Variable	Description	Example
+APP_URL	Base API URL	http://localhost:8000
+DB_CONNECTION	Must be MySQL for FTS	mysql
+DB_DATABASE	Database name	ecommerce_api
+DB_USERNAME	DB user	root
+DB_PASSWORD	DB password	null
+JWT_SECRET	Used to sign JWT tokens	(generated)
+🔑 4. API Authentication Guide
 
-Variable
+This API uses JWT Bearer Tokens.
 
-Description
+🔐 Login to Get Token
 
-Example Value
+Endpoint:
+POST /api/v1/auth/login
 
-APP_URL
+Test Admin Credentials:
 
-The URL used for API links.
+email: asafwan72@gmail.com  
+password: 12345678
 
-http://localhost:8000
+🔧 Use the token in protected requests:
+Authorization: Bearer <your_token_here>
 
-DB_CONNECTION
+📘 Detailed Authentication
 
-Must be mysql for FTS.
+For all roles, access levels, scoping rules, and test credential details:
+➡️ See API_Authentication_Guide.md
 
-mysql
+🧪 5. Testing Instructions
 
-DB_DATABASE
-
-Database name.
-
-ecommerce_api
-
-DB_USERNAME
-
-Database username.
-
-root
-
-DB_PASSWORD
-
-Database password.
-
-null or your password
-
-JWT_SECRET
-
-Required for token signing.
-
-Generated by jwt:secret
-
-4. API Authentication Guide
-
-This API is protected using JWT Bearer Tokens. All requests to protected routes must include a token in the Authorization header.
-
-Quick Start: Getting a Token
-
-Login Endpoint: Use the following credentials (from the seeder) to acquire a token:
-
-Endpoint: POST /api/v1/auth/login
-
-Test Admin Credentials: email: asafwan72@gmail.com | password: 12345678
-
-Using the Token: Set the following header for all protected requests:
-
-Header Key: Authorization
-
-Header Value: Bearer [token_from_login_response]
-
-Detailed Documentation
-
-For a full breakdown of all roles, access levels, specific vendor scoping rules, and all testing credentials, please refer to the dedicated file: API_Authentication_Guide.md
-
-5. Testing Instructions
-
-To run the available tests (Unit Tests for the Service and Repository layers):
+Run all tests:
 
 php artisan test
 
 
-Note: Due to time constraints, the Feature/Integration tests for all API endpoints are incomplete/missing, but the core functionality has been verified using the exported Postman Collection.
+Note: Unit tests (Service + Repository layers) are included.
+Feature/Integration tests for API endpoints are partially incomplete due to time constraints.
+
+📁 Project Structure (High-Level)
+app/
+  Http/
+    Controllers/
+  Services/
+  Repositories/
+  Models/
+database/
+  migrations/
+routes/
+  api.php
+
+📌 Notes
+
+Vendor access is strictly enforced via middleware & service-layer checks.
+
+Product search uses native MySQL FTS for optimal performance.
+
+Controller layer is intentionally thin to preserve maintainability.
+
+🏁 Final Remarks
+
+This submission demonstrates architectural design choices and practical implementation of a scalable, secure Laravel-based E-Commerce backend.
