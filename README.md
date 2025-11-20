@@ -1,59 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Senior Laravel Developer Assessment: E-Commerce API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project implements a secure, role-based E-Commerce API built on the Laravel framework, focusing on clean architecture, robust security, and high-performance search capabilities, as required by the assignment brief.
 
-## About Laravel
+6. Contact Information
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Detail
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Value
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Name
 
-## Learning Laravel
+[Your Name]
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Email
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+[Your Email]
 
-## Laravel Sponsors
+GitHub Profile
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+[Your GitHub Link]
 
-### Premium Partners
+1. Project Overview and Features
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+This submission delivers the core foundation for the E-Commerce platform, prioritizing security and data management over the transactional workflow (Orders).
 
-## Contributing
+Completed Core Features:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Authentication (JWT): Full token-based authentication using Laravel Sanctum/Passport (or equivalent JWT package) for secure API access.
 
-## Code of Conduct
+Authorization (RBAC): Strict Role-Based Access Control enforced across all management endpoints for Admin, Vendor, and Customer roles.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Vendor Security Scoping: Implemented logic to ensure Vendors can only manage (view, update, delete) the products they own. Admins have unrestricted access.
 
-## Security Vulnerabilities
+Product Management (CRUD): Complete functionality for creating, reading, updating, and deleting Products and their associated Variants.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+High-Performance Search: Product search functionality is implemented using MySQL Full-Text Search (FTS) in Boolean Mode for fast, relevant results.
 
-## License
+Architectural Focus:
+The codebase adheres strictly to the Repository Pattern and utilizes Service Classes to separate business logic from the controller layer, ensuring maintainability and testability.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Local Setup Instructions (Step-by-Step)
+
+Follow these steps to get the application running locally:
+
+Clone the Repository:
+
+git clone [YOUR_REPO_URL]
+cd [repo-name]
+
+
+Install PHP Dependencies:
+
+composer install
+
+
+Setup Environment File:
+
+cp .env.example .env
+
+
+Generate Application Key:
+
+php artisan key:generate
+
+
+Configure Database and FTS:
+
+Ensure your .env file points to a MySQL database.
+
+Crucially: Ensure your database service (e.g., Docker, XAMPP) is running.
+
+Run Migrations and Seed Database:
+The migration file for the products table includes the necessary FULLTEXT INDEX required for the search feature.
+
+php artisan migrate --seed
+
+
+Note: Seeding creates the roles (Admin, Vendor, Customer) and the initial testing users.
+
+Generate JWT Secret Key (If using tymon/jwt-auth):
+
+php artisan jwt:secret
+php artisan config:clear
+
+
+Start the Local Server:
+
+php artisan serve
+
+
+3. Environment Variables Documentation
+
+Ensure the following variables in your .env file are configured:
+
+Variable
+
+Description
+
+Example Value
+
+APP_URL
+
+The URL used for API links.
+
+http://localhost:8000
+
+DB_CONNECTION
+
+Must be mysql for FTS.
+
+mysql
+
+DB_DATABASE
+
+Database name.
+
+ecommerce_api
+
+DB_USERNAME
+
+Database username.
+
+root
+
+DB_PASSWORD
+
+Database password.
+
+null or your password
+
+JWT_SECRET
+
+Required for token signing.
+
+Generated by jwt:secret
+
+4. API Authentication Guide
+
+This API is protected using JWT Bearer Tokens. All requests to protected routes must include a token in the Authorization header.
+
+Quick Start: Getting a Token
+
+Login Endpoint: Use the following credentials (from the seeder) to acquire a token:
+
+Endpoint: POST /api/v1/auth/login
+
+Test Admin Credentials: email: asafwan72@gmail.com | password: 12345678
+
+Using the Token: Set the following header for all protected requests:
+
+Header Key: Authorization
+
+Header Value: Bearer [token_from_login_response]
+
+Detailed Documentation
+
+For a full breakdown of all roles, access levels, specific vendor scoping rules, and all testing credentials, please refer to the dedicated file: API_Authentication_Guide.md
+
+5. Testing Instructions
+
+To run the available tests (Unit Tests for the Service and Repository layers):
+
+php artisan test
+
+
+Note: Due to time constraints, the Feature/Integration tests for all API endpoints are incomplete/missing, but the core functionality has been verified using the exported Postman Collection.
