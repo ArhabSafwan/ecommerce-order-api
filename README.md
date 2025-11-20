@@ -1,96 +1,53 @@
-🛒 E-Commerce API — Senior Laravel Developer Assessment
+# Senior Laravel Developer Assessment: E-Commerce API
 
-A secure, role-based E-Commerce REST API built with Laravel, featuring clean architecture, JWT authentication, and high-performance MySQL full-text search.
+This project implements a secure, role-based E-Commerce API built on the Laravel framework, focusing on clean architecture, robust security, and high-performance search capabilities, as required by the assignment brief.
 
-📇 Contact Information
-Detail	Value
-Name	[Your Name]
-Email	[Your Email]
-GitHub Profile	[Your GitHub Link]
-🚀 1. Project Overview & Features
-✅ Completed Core Features
+---
 
-Authentication (JWT) using Sanctum/Passport or tymon/jwt-auth.
+## 6. Contact Information
 
-Authorization (RBAC): Admin, Vendor, Customer.
+| Detail | Value |
+|--------|--------|
+| **Name** | [Your Name] |
+| **Email** | [Your Email] |
+| **GitHub Profile** | [Your GitHub Link] |
 
-Vendor Scoping: Vendors can manage only their own products.
+---
 
-Product Management (CRUD with Variants).
+## 1. Project Overview and Features
 
-High-Performance Search via MySQL FULLTEXT Boolean Mode.
+This submission delivers the core foundation for the E-Commerce platform, prioritizing security and data management over the transactional workflow (Orders).
 
-Clean Architecture using Repository Pattern + Service Layer.
+### Completed Core Features
 
-🛠 2. Local Setup Instructions
-1. Clone the Repository
+#### Authentication (JWT)
+- Full token-based authentication using Laravel Sanctum/Passport (or equivalent JWT package) for secure API access.
+
+#### Authorization (RBAC)
+- Strict Role-Based Access Control enforced across all management endpoints for Admin, Vendor, and Customer roles.
+
+#### Vendor Security Scoping
+- Vendors can only manage (view, update, delete) the products they own.
+- Admins have unrestricted access.
+
+#### Product Management (CRUD)
+- Complete functionality for creating, reading, updating, and deleting Products and their associated Variants.
+
+#### High-Performance Search
+- Product search implemented using MySQL Full-Text Search (FTS) in Boolean Mode for fast and relevant results.
+
+### Architectural Focus
+- Strict adherence to the Repository Pattern.
+- Service classes to separate business logic from controller layer.
+- Ensures maintainability and testability.
+
+---
+
+## 2. Local Setup Instructions (Step-by-Step)
+
+Follow these steps to get the application running locally:
+
+### 1. Clone the Repository
+```bash
 git clone [YOUR_REPO_URL]
 cd [repo-name]
-
-2. Install PHP Dependencies
-composer install
-
-3. Copy Environment File
-cp .env.example .env
-
-4. Generate App Key
-php artisan key:generate
-
-5. Configure Database
-
-Update .env with MySQL credentials.
-
-6. Run Migrations & Seeders
-php artisan migrate --seed
-
-7. Generate JWT Secret (if using tymon/jwt-auth)
-php artisan jwt:secret
-php artisan config:clear
-
-8. Start Server
-php artisan serve
-
-⚙️ 3. Environment Variables
-Variable	Description	Example
-APP_URL	Base API URL	http://localhost:8000
-DB_CONNECTION	Must be MySQL for FTS	mysql
-DB_DATABASE	Database name	ecommerce_api
-DB_USERNAME	DB user	root
-DB_PASSWORD	DB password	null
-JWT_SECRET	Secret used for signing JWT tokens	generated via jwt:secret
-🔑 4. API Authentication Guide
-Login to obtain a token
-
-Endpoint:
-POST /api/v1/auth/login
-
-Admin test credentials:
-
-email: asafwan72@gmail.com  
-password: 12345678
-
-Use the token in requests
-Authorization: Bearer <token_here>
-
-
-For all roles, permissions, and vendor scoping:
-➡️ See API_Authentication_Guide.md
-
-🧪 5. Testing Instructions
-
-Run all tests:
-
-php artisan test
-
-
-Unit tests for Services & Repositories included.
-Feature tests partially incomplete.
-
-📁 Project Architecture (High-Level)
-app/
-  Http/Controllers/
-  Services/
-  Repositories/
-  Models/
-database/migrations/
-routes/api.php
