@@ -122,4 +122,14 @@ To run unit tests for the Service and Repository layers:
 php artisan test
 ```
 
+#### Importing the Postman Collection
+
+To import the `ecommerce_api_postman_collection.json` file into Postman, follow these steps:
+
+1.  Open Postman.
+2.  Click on the "Import" button in the top left corner.
+3.  Select "Upload Files" and choose the `Documentation/ecommerce_api_postman_collection.json` file from your cloned repository.
+4.  The collection will be imported and visible in your workspace.
+5.  **Important:** Remember to set up your environment variables in Postman, especially `baseURL`, to point to your local API (e.g., `http://localhost:8000`).
+
 Note: Due to time constraints, feature/integration tests for API endpoints are incomplete, but all core functionality has been validated using the provided Postman collection, which can be found [here](Documentation/ecommerce_api_postman_collection.json).
