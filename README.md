@@ -113,7 +113,7 @@ A complete breakdown of:
 *   Vendor scoping rules
 *   All testing credentials
 
-…can be found in `API_Authentication_Guide.md`.
+…can be found in [`API_Authentication_Guide.md`](Documentation/API_Authentication_Guide.md).
 
 ### 5. Testing Instructions
 
@@ -122,4 +122,4 @@ To run unit tests for the Service and Repository layers:
 php artisan test
 ```
 
-Note: Due to time constraints, feature/integration tests for API endpoints are incomplete, but all core functionality has been validated using the provided Postman collection.
+Note: Due to time constraints, feature/integration tests for API endpoints are incomplete, but all core functionality has been validated using the provided Postman collection, which can be found [here](Documentation/ecommerce_api_postman_collection.json).
