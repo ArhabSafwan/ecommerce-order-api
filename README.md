@@ -51,3 +51,8 @@ Follow these steps to get the application running locally:
 ```bash
 git clone [YOUR_REPO_URL]
 cd [repo-name]
+
+### 2. Install PHP Dependencies
+```bash
+composer install
+
