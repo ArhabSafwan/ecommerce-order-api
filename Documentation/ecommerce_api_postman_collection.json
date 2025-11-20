@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "80e7c7a0-0ed7-44f7-8e29-44c1e6bf439c",
+		"name": "Ecommerce Order Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "47135770",
+		"_collection_link": "https://research-astronomer-42074418-4382782.postman.co/workspace/Arhab-Safwan's-Workspace~a986f496-b984-42e4-85be-17240754cf76/collection/47135770-80e7c7a0-0ed7-44f7-8e29-44c1e6bf439c?action=share&source=collection_link&creator=47135770"
+	},
+	"item": [
+		{
+			"name": "Admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"asafwan72@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "9|5zeVMNLnTuDNliKrxHXIeLTMlEBDmdKmWkLSUuYWf14cb380"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Customer Andrew\",\r\n    \"email\": \"andrew@vendorcorp.com\",\r\n    \"password\": \"12345678\",\r\n    \"password_confirmation\": \"12345678\",\r\n    \"role\": \"customer\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vendor2@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"customer1@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzI2OTgsImV4cCI6MTc2MzM3NjI5OCwibmJmIjoxNzYzMzcyNjk4LCJqdGkiOiJDbFcxdDg2Z2xZQkRIRFhzIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XWtdoMNF58lqsQ2pF9H5BzzUZ6OizLdku5EVC56MrDU"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/auth/me"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzMTU2MTcsImV4cCI6MTc2MzMxOTIxNywibmJmIjoxNzYzMzE1NjE3LCJqdGkiOiJuTjQ5MFpSejBPeTZRTnVoIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.UvbMYC7tvk7ydT_YWusZaKGJC3bp9RshJ_K0h_ZdldQ"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/admin/dashboard"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzMTU2MTcsImV4cCI6MTc2MzMxOTIxNywibmJmIjoxNzYzMzE1NjE3LCJqdGkiOiJuTjQ5MFpSejBPeTZRTnVoIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.UvbMYC7tvk7ydT_YWusZaKGJC3bp9RshJ_K0h_ZdldQ"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/customer/dashboard"
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzMTYwNjYsImV4cCI6MTc2MzMxOTY2NiwibmJmIjoxNzYzMzE2MDY2LCJqdGkiOiJDRWxOU0hkc3VtSjFWbnM1Iiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.C86xBgJVUoU0u43lrjoTcL9W2x_tbnigSkG4P7htMmc"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/vendor/dashboard"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzMTYwNjYsImV4cCI6MTc2MzMxOTY2NiwibmJmIjoxNzYzMzE2MDY2LCJqdGkiOiJDRWxOU0hkc3VtSjFWbnM1Iiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.C86xBgJVUoU0u43lrjoTcL9W2x_tbnigSkG4P7htMmc"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/auth/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin or Vednor Product Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNjk4MjksImV4cCI6MTc2MzM3MzQyOSwibmJmIjoxNzYzMzY5ODI5LCJqdGkiOiJyTllrMXIzZWUwbnhaQmREIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.BgtWWr0noTse7H7ErfWd_LYMxJRxeM9kKr3WM_bHhO4"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Luxury Cotton T-Shirt\",\r\n    \"sku\": \"TSHIRT-LC-001\",\r\n    \"description\": \"Premium cotton t-shirt with classic fit.\",\r\n    \"price\": 29.99,\r\n    \"low_stock_threshold\": 10,\r\n    \"variants\": [\r\n        {\r\n            \"sku\": \"TSHIRT-LC-001-S\",\r\n            \"attributes\": {\"size\": \"S\", \"color\": \"Red\"},\r\n            \"price\": 0.00, // Price modifier from base price\r\n            \"quantity\": 50 // Stock for Red Small\r\n        },\r\n        {\r\n            \"sku\": \"TSHIRT-LC-001-L\",\r\n            \"attributes\": {\"size\": \"L\", \"color\": \"Blue\"},\r\n            \"price\": 5.00, // $5 more than base price\r\n            \"quantity\": 25 // Stock for Blue Large\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Product Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNTIxNDcsImV4cCI6MTc2MzM1NTc0NywibmJmIjoxNzYzMzUyMTQ3LCJqdGkiOiJnbUlSVktzRWRmdEFMNm9CIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.QuR0qJ6i57eH-WfiJC-CHvQL9jrFdT2xFXPl6qg5_Qw"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Luxury Cotton T-Shirt\",\r\n    \"sku\": \"TSHIRT-LC-005\",\r\n    \"description\": \"Premium cotton t-shirt with classic fit.\",\r\n    \"price\": 29.99,\r\n    \"low_stock_threshold\": 10,\r\n    \"variants\": [\r\n        {\r\n            \"sku\": \"TSHIRT-LC-005-S\",\r\n            \"attributes\": {\"size\": \"S\", \"color\": \"Red\"},\r\n            \"price\": 0.00, // Price modifier from base price\r\n            \"quantity\": 50 // Stock for Red Small\r\n        },\r\n        {\r\n            \"sku\": \"TSHIRT-LC-005-L\",\r\n            \"attributes\": {\"size\": \"L\", \"color\": \"Blue\"},\r\n            \"price\": 5.00, // $5 more than base price\r\n            \"quantity\": 25 // Stock for Blue Large\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Role Base Produts View",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzAzMDMsImV4cCI6MTc2MzM3MzkwMywibmJmIjoxNzYzMzcwMzAzLCJqdGkiOiJnS0NQdXFiN2MwaUVJSWxhIiwic3ViIjoiNCIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.xAgX0qDyeC_Bjltw9UPK2iVe10Mu_u-hfqs4_kbI9dE"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"url": "{{baseURL}}/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Single Product View",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzI2OTgsImV4cCI6MTc2MzM3NjI5OCwibmJmIjoxNzYzMzcyNjk4LCJqdGkiOiJDbFcxdDg2Z2xZQkRIRFhzIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XWtdoMNF58lqsQ2pF9H5BzzUZ6OizLdku5EVC56MrDU"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token_here>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Luxury Cotton T-Shirt\",\r\n    \"sku\": \"TSHIRT-LC-005\",\r\n    \"description\": \"Premium cotton t-shirt with classic fit.\",\r\n    \"price\": 29.99,\r\n    \"low_stock_threshold\": 10,\r\n    \"variants\": [\r\n        {\r\n            \"sku\": \"TSHIRT-LC-005-S\",\r\n            \"attributes\": {\"size\": \"S\", \"color\": \"Red\"},\r\n            \"price\": 0.00, // Price modifier from base price\r\n            \"quantity\": 50 // Stock for Red Small\r\n        },\r\n        {\r\n            \"sku\": \"TSHIRT-LC-005-L\",\r\n            \"attributes\": {\"size\": \"L\", \"color\": \"Blue\"},\r\n            \"price\": 5.00, // $5 more than base price\r\n            \"quantity\": 25 // Stock for Blue Large\r\n        }\r\n    ]\r\n}"
+				},
+				"url": "{{baseURL}}/api/v1/products/4"
+			},
+			"response": []
+		},
+		{
+			"name": "Product Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzI2OTgsImV4cCI6MTc2MzM3NjI5OCwibmJmIjoxNzYzMzcyNjk4LCJqdGkiOiJDbFcxdDg2Z2xZQkRIRFhzIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XWtdoMNF58lqsQ2pF9H5BzzUZ6OizLdku5EVC56MrDU"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Updated Luxury Cotton T-Shirt\",\r\n    \"base_price\": 34.99,\r\n    \"description\": \"New description for 2025 collection.\",\r\n    \"variants\": [\r\n        {\r\n            \"id\": 10, // If updating an existing variant\r\n            \"quantity\": 70 // Update stock level\r\n        },\r\n        {\r\n            \"sku\": \"TSHIRT-LC-NEW\", // If adding a new variant\r\n            \"attributes\": {\"size\": \"XL\", \"color\": \"Green\"},\r\n            \"quantity\": 30\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/v1/products/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Product Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzI2OTgsImV4cCI6MTc2MzM3NjI5OCwibmJmIjoxNzYzMzcyNjk4LCJqdGkiOiJDbFcxdDg2Z2xZQkRIRFhzIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.XWtdoMNF58lqsQ2pF9H5BzzUZ6OizLdku5EVC56MrDU"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "{{baseURL}}/api/v1/products/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Product Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjMzNzQ1OTUsImV4cCI6MTc2MzM3ODE5NSwibmJmIjoxNzYzMzc0NTk1LCJqdGkiOiJhbklOck5oY040dmVWSTh0Iiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.qTz-8qNovb5fg0Q8Z1FXAIoZ_bihP2ciQSWnDvuQDWU"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v1/products/search?q=Updated Luxury Cotton T-Shirt",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Updated Luxury Cotton T-Shirt"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
