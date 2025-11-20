@@ -6,9 +6,10 @@ This project implements a secure, role-based E-Commerce API built on the Laravel
 
 | Detail          | Value             |
 | :-------------- | :---------------- |
-| Name            | [Your Name]       |
-| Email           | [Your Email]      |
-| GitHub Profile  | [Your GitHub Link]|
+| Name            | SM Arhab Safwan       |
+| Email           | [asafwan72@gmail.com]      |
+| GitHub Profile  | [https://github.com/ArhabSafwan/]|
+| Ecoomerce Project Repo  | [https://github.com/ArhabSafwan/ecommerce-order-api/]|
 
 ## 1. Project Overview and Features
 
@@ -32,8 +33,8 @@ Follow these steps to get the application running locally:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [YOUR_REPO_URL]
-    cd [repo-name]
+    git clone [https://github.com/ArhabSafwan/ecommerce-order-api/]
+    cd [ecommerce-order-api]
     ```
 2.  **Install PHP Dependencies:**
     ```bash
@@ -115,21 +116,14 @@ A complete breakdown of:
 
 …can be found in [`API_Authentication_Guide.md`](Documentation/API_Authentication_Guide.md).
 
-### 5. Testing Instructions
-
-To run unit tests for the Service and Repository layers:
-```bash
-php artisan test
-```
-
 #### Importing the Postman Collection
 
 To import the `ecommerce_api_postman_collection.json` file into Postman, follow these steps:
 
 1.  Open Postman.
 2.  Click on the "Import" button in the top left corner.
-3.  Select "Upload Files" and choose the `Documentation/ecommerce_api_postman_collection.json` file from your cloned repository.
+3.  Select "Upload Files" and choose the [ecommerce_api_postman_collection.json](Documentation/ecommerce_api_postman_collection.json) file from your cloned repository.
 4.  The collection will be imported and visible in your workspace.
 5.  **Important:** Remember to set up your environment variables in Postman, especially `baseURL`, to point to your local API (e.g., `http://localhost:8000`).
 
-Note: Due to time constraints, feature/integration tests for API endpoints are incomplete, but all core functionality has been validated using the provided Postman collection, which can be found [here](Documentation/ecommerce_api_postman_collection.json).
+Note: Due to time constraints, feature/integration tests for API endpoints are incomplete, but all core functionality has been validated using the provided Postman collection..
