@@ -7,9 +7,9 @@ This project implements a secure, role-based E-Commerce API built on the Laravel
 | Detail          | Value             |
 | :-------------- | :---------------- |
 | Name            | SM Arhab Safwan       |
-| Email           | [asafwan72@gmail.com]      |
-| GitHub Profile  | [https://github.com/ArhabSafwan/]|
-| Ecoomerce Project Repo  | [https://github.com/ArhabSafwan/ecommerce-order-api/]|
+| Email           | asafwan72@gmail.com     |
+| GitHub Profile  | https://github.com/ArhabSafwan/ |
+| Ecoomerce Project Repo  | https://github.com/ArhabSafwan/ecommerce-order-api/ |
 
 ## 1. Project Overview and Features
 
@@ -33,8 +33,8 @@ Follow these steps to get the application running locally:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/ArhabSafwan/ecommerce-order-api/]
-    cd [ecommerce-order-api]
+    git clone https://github.com/ArhabSafwan/ecommerce-order-api/
+    cd ecommerce-order-api
     ```
 2.  **Install PHP Dependencies:**
     ```bash
